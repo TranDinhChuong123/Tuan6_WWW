@@ -1,28 +1,19 @@
 package com.example.tuan66.services;
 
 
-import com.example.tuan66.entities.PostComment;
-import com.example.tuan66.repositories.PostCommentRepositoty;
+import com.example.tuan66.entities.User;
+import com.example.tuan66.repositories.UserRepositoty;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
-
 @Service
-public class PostCommentService {
+public class UserService {
     @Autowired
-    private PostCommentRepositoty postCommentRepositoty;
-
-    public List<PostComment> findAll() {
-        return postCommentRepositoty.findAll();
-    }
-    public void add(PostComment postComment){
-        postCommentRepositoty.save(postComment);
-    }
+    private UserRepositoty userRepositoty;
 
 
-    public PostComment findById(long id) {
-         return postCommentRepositoty.findById(id).orElse(null);
+    public User findUserByRegisteredAt(String registeredAt) {
+         return userRepositoty.findUserByRegisteredAt(registeredAt);
+
     }
 }

@@ -1,10 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
+<style>
+    table, th, td {
+        border:1px solid black;
+
+    }
+
+
+    table tr.selected {
+        background-color: #007bff; /* Màu nền khi được chọn */
+        color: #fff; /* Màu văn bản khi được chọn */
+    }
+    /* CSS để thiết lập các nút cân bằng */
+    .balance-button {
+        width: 100px;
+        height: 40px;
+        margin: 10px;
+        font-size: 16px;
+    }
+</style>
 <body>
-$END$
+<table class="table1">
+    <thead>
+    <tr>
+
+        <th>ID</th>
+        <th>Post</th>
+        <th>Tile</th>
+        <th>Published</th>
+        <th>Content</th>
+        <th>PublishedAt</th>
+        <th>createdAt</th>
+        <th>Parent</th>
+        <th>User</th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="item : ${postComments}">
+        <td th:text="${item.getId()}"></td>
+        <td th:text="${item.getPost().getId()}"></td>
+        <td th:text="${item.getTitle()}"></td>
+        <td th:text="${item.getPublished()}"></td>
+        <td th:text="${item.getContent()}"></td>
+        <td th:text="${item.getPublishedAt()}"></td>
+        <td th:text="${item.getCreateddAt()}"></td>
+        <td th:text="${item.parent.getId()}"></td>
+        <td th:text="${item.getUser().getId()}"></td>
+
+    </tr>
+    </tbody>
+
+</table>
 </body>
 </html>
