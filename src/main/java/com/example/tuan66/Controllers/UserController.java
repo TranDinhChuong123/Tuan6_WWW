@@ -24,16 +24,16 @@ public class UserController {
         return "login";
     }
 
-    @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, Model model) {
-        User user = userRepositoty.findUserByRegisteredAt(username);
-        model.addAttribute("user", user);
-        System.out.println(user.getId());
-        if (user != null && user.getPasswordHash().equals(password)) {
-            return "dashboard";
-        } else {
-            return "login";
-        }
-    }
+//    @PostMapping("/login")
+//    public String login(@RequestParam String username, @RequestParam String password, Model model) {
+//        User user = userRepositoty.findUserByRegisteredAt(username);
+//        model.addAttribute("user", user);
+//        System.out.println(user.getId());
+//        if (user != null && user.getPasswordHash().equals(password)) {
+//            return "dashboard";
+//        } else {
+//            return "login";
+//        }
+//    }
 
 }

@@ -21,7 +21,7 @@ public class PostCommentController {
     public String getListPostComment(Model model) {
         List<PostComment> postComments = postCommentService.findAll();
         model.addAttribute("postComments", postComments);
-        return "postComment";
+        return "post";
     }
     @GetMapping("/postComment/{id}")
     public String getPostCommentById(@PathVariable Long id, Model model) {
